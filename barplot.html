@@ -15,7 +15,6 @@
   </style>
 </head>
 <body>
-  <h2>Average Listed Price by State</h2>
   <div id="chart"></div>
   <script>
     d3.json('state_avg.json').then(data => {
@@ -82,13 +81,6 @@
         .attr("text-anchor", "middle")
         .text("Average Listed Price ($)");
         
-      svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", -margin.top / 2)
-        .attr("text-anchor", "middle")
-        .style("font-size", "16px")
-        .style("font-weight", "bold")
-        .text("Average Listed Price by State");
     });
   </script>
 </body>
