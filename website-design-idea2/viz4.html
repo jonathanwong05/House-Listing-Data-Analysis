@@ -6,10 +6,8 @@
   <title>House Listing Data Analysis - Average Listing Price by State</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Additional styles for visualization background */
     .visualization-container {
       background-color: #222222;
-      /* Slightly lighter than page background */
       padding: 20px;
       border-radius: 6px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -21,13 +19,11 @@
       border-radius: 4px;
       width: 100%;
       background-color: #202020;
-      /* Match the barplot background */
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <div class="nav-content">
@@ -45,7 +41,6 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
   <div class="container">
     <div class="main-content">
       <div class="content-card">
@@ -54,13 +49,28 @@
           <iframe src="../barplot.html" width="100%" height="500" style="border:0;"></iframe>
         </div>
         <div class="analysis">
-          <p>Put analysis for barplot here</p>
+          <p>The D3 barplot compares average listed house prices across U.S. states for 2023, revealing significant regional disparities.
+            California and Massachusetts stand out with the highest average listing prices, likely due to their strong job markets and educational systems.
+            California's average is particularly high at approximately $1.26 million, possibly inflated by luxury properties owned by affluent individuals.
+            In contrast, states like Mississippi, Ohio, Illinois, and Indiana show the lowest average prices, reflecting the greater affordability common in the Midwest region.
+          </p>
+          <p>
+            These price variations appear to correlate with regional economic and social characteristics.
+            Higher-priced states typically feature quality education, abundant job opportunities, and limited housing supply.
+            Lower-priced markets benefit from greater housing availability and different economic conditions.
+            Local factors such as neighborhood desirability, infrastructure, and community amenities also influence these state averages.
+          </p>
+          <p>
+            These findings have important implications for various stakeholders:
+            homebuyers may weigh location benefits against cost premiums,
+            real estate professionals can refine marketing and pricing strategies based on regional differences,
+            and policymakers should consider geographic economic disparities when developing housing policies.
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 House Listing Data Analysis</p>
