@@ -1,87 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Average Listed Price by State - D3 Barplot</title>
+  <title>Barplot</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
-    body { font-family: sans-serif; }
-    .bar { fill: steelblue; }
-    .axis { font-size: 12px; }
-    .axis-label { font-size: 14px; font-weight: bold; }
+    body {
+      font-family: sans-serif;
+      background-color: #202020;
+      /* Dark background */
+      color: #e0e0e0;
+      /* Light text color */
+      margin: 0;
+      padding: 0;
+    }
+
+    .bar {
+      fill: #4e8bb8;
+    }
+
+    /* Adjusted bar color */
+    .axis {
+      font-size: 12px;
+    }
+
+    .axis-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
     .x-axis-label {
       text-anchor: end;
     }
+
+    /* Styling for axes on dark background */
+    .axis text {
+      fill: #e0e0e0;
+    }
+
+    .axis path,
+    .axis line {
+      stroke: #606060;
+    }
+
+    .axis-label {
+      fill: #e0e0e0;
+    }
+
+    /* Remove default margin on h2 */
+    h2 {
+      display: none;
+      /* Hide the static title */
+    }
   </style>
 </head>
+
 <body>
+  <!-- Removed the h2 title that was causing duplication -->
   <div id="chart"></div>
   <script>
     d3.json('state_avg.json').then(data => {
-      const margin = {top: 40, right: 30, bottom: 80, left: 120},
-            width = 800 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+      const margin = { top: 20, right: 30, bottom: 80, left: 120 },
+        width = 800 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
       const svg = d3.select("#chart")
         .append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-          .attr("transform", `translate(${margin.left}, ${margin.top})`);
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
+
+      const g = svg.append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
       const x = d3.scaleBand()
         .domain(data.map(d => d.State))
         .range([0, width])
         .padding(0.2);
-      
-      svg.append("g")
+
+      g.append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(x))
         .attr("class", "axis")
         .selectAll("text")
-          .attr("class", "x-axis-label")
-          .attr("transform", "rotate(-45)") 
-          .style("text-anchor", "end")      
-          .attr("dx", "-0.8em")           
-          .attr("dy", "0.15em"); 
+        .attr("class", "x-axis-label")
+        .attr("transform", "rotate(-45)")
+        .style("text-anchor", "end")
+        .attr("dx", "-0.8em")
+        .attr("dy", "0.15em");
 
       const y = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.ListedPrice)]).nice()
         .range([height, 0]);
-      
+
       const yAxis = d3.axisLeft(y)
         .tickFormat(d => d3.format(",.0f")(d));
-        
-      svg.append("g")
+
+      g.append("g")
         .call(yAxis)
         .attr("class", "axis");
 
-      svg.selectAll("rect")
+      g.selectAll("rect.bar")
         .data(data)
         .enter()
         .append("rect")
-          .attr("class", "bar")
-          .attr("x", d => x(d.State))
-          .attr("y", d => y(d.ListedPrice))
-          .attr("width", x.bandwidth())
-          .attr("height", d => height - y(d.ListedPrice));
+        .attr("class", "bar")
+        .attr("x", d => x(d.State))
+        .attr("y", d => y(d.ListedPrice))
+        .attr("width", x.bandwidth())
+        .attr("height", d => height - y(d.ListedPrice));
 
-      svg.append("text")
+      g.append("text")
         .attr("class", "axis-label")
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 20)
         .attr("text-anchor", "middle")
         .text("State");
 
-      svg.append("text")
+      g.append("text")
         .attr("class", "axis-label")
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
         .attr("y", -margin.left + 40)
         .attr("text-anchor", "middle")
         .text("Average Listed Price ($)");
-        
+
+      // Removed the title from inside the D3 visualization
     });
   </script>
 </body>
+
 </html>
