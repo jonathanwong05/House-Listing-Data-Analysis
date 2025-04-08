@@ -1,59 +1,154 @@
+/* Base styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #303030;
+  color: #e0e0e0;
+}
+
+/* Container for consistent width */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #404040;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff8d3a;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  /* Allow items to wrap to prevent overlap */
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #3a3a3a;
+  color: #ff8d3a;
+}
+
+.nav-links a.active {
+  background-color: #3a3a3a;
+  color: #ff8d3a;
+  font-weight: 500;
+}
+
+/* Main content styling */
+.main-content {
+  padding: 2rem 0;
+}
+
+.content-card {
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid #ff8d3a;
+}
+
+h1,
+h2 {
+  color: #ff8d3a;
+}
+
+/* Footer styling */
+footer {
+  background-color: #2c2c2c;
+  color: #a0a0a0;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #3a3a3a;
+}
+
+/* Links and interactive elements */
+a {
+  color: #ff8d3a;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #ffaa66;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    padding: 1rem 0;
   }
-  
-  /* Sidebar styling */
-  #sidebar {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    width: 220px;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+
+  .brand {
+    margin-bottom: 1rem;
   }
-  
-  #sidebar h1 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    /* Ensure full width on mobile */
   }
-  
-  #sidebar ul {
-    list-style: none;
-    padding: 0;
+
+  .nav-links li {
+    margin-bottom: 0.5rem;
+    margin-right: 5px;
+    margin-left: 5px;
+    /* Reduce side margins on mobile */
   }
-  
-  #sidebar ul li {
-    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 480px) {
+  .content-card {
+    padding: 1rem;
   }
-  
-  #sidebar ul li a {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 16px;
+
+  /* Further adjustments for very small screens */
+  .nav-links {
+    gap: 5px;
+    /* Add small gap between items */
   }
-  
-  #sidebar ul li a:hover {
-    text-decoration: underline;
+
+  .nav-links a {
+    padding: 0.4rem 0.6rem;
+    /* Smaller padding */
+    font-size: 0.9rem;
+    /* Slightly smaller font */
   }
-  
-  /* Main content styling */
-  #main-content {
-    flex-grow: 1;
-    padding: 40px;
-    box-sizing: border-box;
-  }
-  
-  header, footer {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  footer {
-    margin-top: 40px;
-    font-size: 14px;
-    color: #777;
-  }
-  
+}
