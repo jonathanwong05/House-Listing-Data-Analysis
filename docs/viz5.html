@@ -3,23 +3,38 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>House Listing Data Analysis - Amenities Scatter Plot</title>
+  <title>House Listing Data Analysis - Average Listing Price by State</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .visualization-container {
+      background-color: #222222;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .visualization-container iframe {
+      display: block;
+      border-radius: 4px;
+      width: 100%;
+      background-color: #202020;
+    }
+  </style>
 </head>
 
 <body>
-
   <nav class="navbar">
     <div class="container">
       <div class="nav-content">
         <a href="index.html" class="brand">House Listing Analysis</a>
         <ul class="nav-links">
           <li><a href="index.html">Introduction</a></li>
-          <li><a href="viz1.html">House Map</a></li>
-          <li><a href="viz2.html">Area Plot</a></li>
-          <li><a href="viz3.html">Choropleth</a></li>
-          <li><a href="viz4.html">Price by State</a></li>
-          <li><a href="viz5.html" class="active">Amenities</a></li>
+          <li><a href="viz1.html">Listings Map</a></li>
+          <li><a href="viz2.html">Amenities</a></li>
+          <li><a href="viz3.html">Lot Area</a></li>
+          <li><a href="viz4.html">Choropleth</a></li>
+          <li><a href="viz5.html">Price by State</a></li>
           <li><a href="takeaways.html">Takeaways</a></li>
         </ul>
       </div>
@@ -29,22 +44,28 @@
   <div class="container">
     <div class="main-content">
       <div class="content-card">
-        <h1>Amenities Scatter Plot</h1>
+        <h1>Average Listing Price by State</h1>
         <div class="visualization-container">
-          <img src="amenities_scatter.png" alt="Amenities vs. Listed Price" style="max-width:100%; height:auto;">
+          <iframe src="barplot.html" width="100%" height="500" style="border:0;"></iframe>
         </div>
         <div class="analysis">
-          <p>This scatter plot displays the relationship between a property's total amenities (measured by the combined number 
-            of bedrooms and bathrooms) and its listed price. Each point represents an individual listing, demonstrating possible 
-            trends of how prices scale with increasing amenities. In general, there is a positive correlation: homes with more 
-            amenities tend to have higher prices. However, the relationship is not strictly linear. Some properties with the 
-            same number of amenities show wide price differences, suggesting that other factors, such as location, lot size, 
-            or interior features, could potentially play a significant roles in the listed pricings. Furthermore, this scatter 
-            plot helps in identifying clusters of typical homes (e.g., 3–4 total amenities priced between $200,000–$700,000), as 
-            well as higher-priced outliers with fewer amenities, which are likely to reflect the premium locations of the listings 
-            and the luxury design of the properties. Overall, this plot is useful for exploring and identitfying pricing patterns 
-            across the market and highlighting where buyers may be paying more for location or design rather than just size or
-            utility.</p>
+          <p>The D3 barplot compares average listed house prices across U.S. states for 2023, revealing significant regional disparities.
+            California and Massachusetts stand out with the highest average listing prices, likely due to their strong job markets and educational systems.
+            California's average is particularly high at approximately $1.26 million, possibly inflated by luxury properties owned by affluent individuals.
+            In contrast, states like Mississippi, Ohio, Illinois, and Indiana show the lowest average prices, reflecting the greater affordability common in the Midwest region.
+          </p>
+          <p>
+            These price variations appear to correlate with regional economic and social characteristics.
+            Higher-priced states typically feature quality education, abundant job opportunities, and limited housing supply.
+            Lower-priced markets benefit from greater housing availability and different economic conditions.
+            Local factors such as neighborhood desirability, infrastructure, and community amenities also influence these state averages.
+          </p>
+          <p>
+            These findings have important implications for various stakeholders:
+            homebuyers may weigh location benefits against cost premiums,
+            real estate professionals can refine marketing and pricing strategies based on regional differences,
+            and policymakers should consider geographic economic disparities when developing housing policies.
+          </p>
         </div>
       </div>
     </div>

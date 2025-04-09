@@ -3,17 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>House Listing Data Analysis - Property Area Scatter Plot</title>
+  <title>House Listing Data Analysis - Amenities Scatter Plot</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .problem-viz iframe {
-      width: 100% !important;
-      height: 500px !important;
-      border: none !important;
-      overflow: hidden !important;
-      display: block !important;
-    }
-  </style>
 </head>
 
 <body>
@@ -24,11 +15,11 @@
         <a href="index.html" class="brand">House Listing Analysis</a>
         <ul class="nav-links">
           <li><a href="index.html">Introduction</a></li>
-          <li><a href="viz1.html">House Map</a></li>
-          <li><a href="viz2.html" class="active">Area Plot</a></li>
-          <li><a href="viz3.html">Choropleth</a></li>
-          <li><a href="viz4.html">Price by State</a></li>
-          <li><a href="viz5.html">Amenities</a></li>
+          <li><a href="viz1.html">Listings Map</a></li>
+          <li><a href="viz2.html">Amenities</a></li>
+          <li><a href="viz3.html">Lot Area</a></li>
+          <li><a href="viz4.html">Choropleth</a></li>
+          <li><a href="viz5.html">Price by State</a></li>
           <li><a href="takeaways.html">Takeaways</a></li>
         </ul>
       </div>
@@ -38,26 +29,22 @@
   <div class="container">
     <div class="main-content">
       <div class="content-card">
-        <h1>Property Area Scatter Plot</h1>
-        <div class="visualization-container problem-viz">
-          <iframe src="land_scatter.html" width="100%" height="500" frameborder="0" scrolling="no"
-            allowtransparency="true" style="border: none; width: 100%; height: 500px; overflow: hidden;">
-          </iframe>
+        <h1>Amenities Scatter Plot</h1>
+        <div class="visualization-container">
+          <img src="amenities_scatter.png" alt="Amenities vs. Listed Price" style="max-width:100%; height:auto;">
         </div>
         <div class="analysis">
-          <p>The scatter plot shows us how property lot sizes relate to listing prices across different states. By
-            removing the extreme values (the highest and lowest 1% of both lot sizes and prices), we can focus on
-            typical properties in the market. We can see that larger lots tend to have higher prices, but this pattern
-            isn't consistent everywhere. Properties with the same amount of land can have very different prices, which
-            tells us that other factors like location, house features, and amenities also play important roles in
-            determining value.
-            The graph uses a logarithmic scale for prices, which helps us see both affordable properties (around
-            $10,000) and luxury homes (over $3 million) in the same view. Most properties in the data have less than 10
-            acres of land and are priced under $1 million. The color coding by state reveals interesting differences in
-            regional markets, with some states showing unique pricing patterns. This visualization is useful for both
-            buyers who want to understand how much they might pay for certain lot sizes and for sellers who want to
-            compare their property to similar-sized ones on the market.
-          </p>
+          <p>This scatter plot displays the relationship between a property's total amenities (measured by the combined number 
+            of bedrooms and bathrooms) and its listed price. Each point represents an individual listing, demonstrating possible 
+            trends of how prices scale with increasing amenities. In general, there is a positive correlation: homes with more 
+            amenities tend to have higher prices. However, the relationship is not strictly linear. Some properties with the 
+            same number of amenities show wide price differences, suggesting that other factors, such as location, lot size, 
+            or interior features, could potentially play a significant roles in the listed pricings. Furthermore, this scatter 
+            plot helps in identifying clusters of typical homes (e.g., 3–4 total amenities priced between $200,000–$700,000), as 
+            well as higher-priced outliers with fewer amenities, which are likely to reflect the premium locations of the listings 
+            and the luxury design of the properties. Overall, this plot is useful for exploring and identitfying pricing patterns 
+            across the market and highlighting where buyers may be paying more for location or design rather than just size or
+            utility.</p>
         </div>
       </div>
     </div>
